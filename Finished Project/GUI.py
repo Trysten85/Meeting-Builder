@@ -308,7 +308,7 @@ class MainWindow(QMainWindow):
                                       new_width, current_geometry.height())
 
     def export_results(self):
-        """Export meeting results using classmate's email code"""
+        """Export meeting results using email code"""
         # Check if we have calculated results
         if not hasattr(self, 'last_day_one_result') or not self.last_day_one_result:
             QMessageBox.warning(self, "No Results", "Please calculate meeting times first before exporting.")
@@ -322,10 +322,10 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "No Participants", "No participant data available for export.")
             return
         
-        # Open export dialog using classmate's email functionality
+        # Open export dialog using email functionality
         success = open_export_dialog(self.last_day_one_result, self.last_day_two_result, participants_data, self)
         if success:
-            print("✅ Email sent successfully using classmate's email code!")
+            print("✅ Email sent successfully using email code!")
         else:
             print("❌ Email cancelled or failed")
 

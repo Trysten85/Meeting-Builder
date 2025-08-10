@@ -1,5 +1,5 @@
 """
-Export Dialog for GUI - Uses classmate's email code
+Export Dialog for GUI - Uses email code
 This file handles the GUI for sending emails, keeping it separate from the main GUI
 """
 
@@ -9,7 +9,7 @@ from mail_calc import send_email  # Import from mail_calc.py
 
 
 class ExportDialog(QDialog):
-    """Email export dialog that uses your classmate's send_email function"""
+    """Email export dialog that uses send_email function"""
     
     def __init__(self, day_one_result, day_two_result, participants_data, parent=None):
         super().__init__(parent)
@@ -76,7 +76,7 @@ class ExportDialog(QDialog):
         subject_layout = QHBoxLayout()
         subject_layout.addWidget(QLabel("Subject:"))
         self.subject = QLineEdit()
-        self.subject.setText("Team meeting")  # Matches classmate's subject
+        self.subject.setText("Team meeting")  # Matches subject
         subject_layout.addWidget(self.subject)
         layout.addLayout(subject_layout)
         
@@ -106,7 +106,7 @@ class ExportDialog(QDialog):
     
     def generate_email_body(self):
         """Create email body with meeting results"""
-        # Start with basic message similar to classmate's format
+        # Start with basic message
         body_lines = []
         
         # Add meeting times
@@ -119,7 +119,7 @@ class ExportDialog(QDialog):
         if not body_lines:
             body_lines.append("Meeting time: TBD")
         
-        # Add main message (similar to classmate's format)
+        # Add main message 
         main_message = "A team meeting has been scheduled."
         if body_lines:
             main_message += "\n\nScheduled times:\n" + "\n".join(body_lines)
@@ -134,7 +134,7 @@ class ExportDialog(QDialog):
         return main_message
     
     def send_email(self):
-        """Send email using classmate's send_email function"""
+        """Send email using send_email function"""
         # Get form data
         subject = self.subject.text().strip()
         body = self.body.toPlainText()
@@ -155,7 +155,7 @@ class ExportDialog(QDialog):
             return
         
         try:
-            # Use classmate's send_email function EXACTLY as they wrote it
+            # Use send_email function 
             send_email(subject, body, sender_email, password, recipient_emails)
             
             # Show success message

@@ -82,6 +82,9 @@ def send_email(subject, body, sender_email, sender_password, recipient_emails):
 #     sender_password="your_app_password",  # use an app password if Gmail has 2FA
 #     recipient_emails=email_list
 # )
+
+
+
 def main():
     print("=== Meeting Time App Prototype ===")
     enter_availability()
